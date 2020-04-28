@@ -1,9 +1,8 @@
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 @import url(https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css);
-
+/* 공통 배경 */
 .app-header {
   background-color: yellow;
-  height: 15vh;
 }
 .app-navigation {
   background-color: pink;
@@ -11,7 +10,6 @@
 }
 .app-main {
   background-color: blue;
-
 }
 .book {
   background-color: tomato;
@@ -37,10 +35,10 @@
   background-color: orange;
   height: 15vh;
 }
-html{
+/* 공통 스타일 */
+html {
   font-size: 10px;
 }
-/* 공통 스타일 */
 body {
   font-family: 'Spoqa Han Sans', 'Sans-serif';
   font-weight: 400;
@@ -48,35 +46,30 @@ body {
   color: #181818;
   background-color: #fff;
 }
-a{
-  /* color: inherit; */
+a {
+  color: inherit;
   text-decoration: none;
 }
-a:link{
-  color: inherit;
+/* 공통 컨테이너 */
+.app-container {
+  display: flex;
+  flex-flow: row wrap;
 }
-a:visited{
-  color: #999;
-}
-a:hover{
-  color: #ff0000;
-}
-a:focus{
-  color: #0000ff;
-}
-a:active{
-  color: #00ff00;
-}
+.app-header,
+.app-navigation,
+.app-main,
+.app-footer {
+  width: 100%;
 }
 /* 모바일 디바이스 */
 @media screen and (max-width: 999px) {
-  /* 모바일 바디 */
-  body{
+  /* 모바일 Body */
+  body {
     font-size: 1.5rem;
   }
+
   /* 모바일 헤더 */
   .app-header {
-    height: 25vh;
   }
   /* 모바일 내비게이션 */
   .app-navigation {
@@ -115,4 +108,16 @@ a:active{
 }
 /* 데스크탑 디바이스 */
 @media screen and (min-width: 1000px) {
+  /* 데스크탑 컨테이너 */
+  .app-container {
+    justify-content: center;
+  }
+  /* 데스크탑 헤더 */
+  .app-header {
+    width: 1000px;
+  }
+  /* 데스크탑 메인 콘텐츠 */
+  .app-main {
+    width: 1000px;
+  }
 }
