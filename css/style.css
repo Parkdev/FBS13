@@ -1,5 +1,14 @@
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 @import url(https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css);
+/* 숨김 콘테츠 */
+legend{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: polygon(0 0, 0 0, 0 0);
+}
 /* 스타일 초기화 */
 .resetMargin{
   margin-top: 0;
@@ -10,6 +19,11 @@
   margin-bottom: 0;
   padding-left: 0;
   list-style-type: none;
+}
+.resetBox{
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 /* 공통 배경 */
 .app-header {
@@ -72,6 +86,16 @@ a {
 .app-footer {
   width: 100%;
 }
+/* 공통 맴버 링크 */
+.memberOnly{
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.2rem 1rem 0.2rem 2rem;
+}
+.memberOnly a{
+  display: inline-block;
+  padding: 0.8rem 1rem;
+}
 /* 모바일 디바이스 */
 @media screen and (max-width: 999px) {
   /* 모바일 Body */
@@ -97,13 +121,37 @@ a {
     order: -1;
     background-color: #988574;
     color: #fff;
-    display: flex;
-    justify-content: flex-end;
-    padding: 0.2rem 1rem 0.2rem 2rem;
   }
-  .memberOnly a{
-    display: inline-block;
-    padding: 0.8rem 1rem;
+  /* 모바일 검색 폼 */
+  .searchForm{
+    padding : 0 20px 20px;
+  }
+
+  input[name="search"]{
+    width: calc(100% - 40px);
+    height: 30px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    padding: 2px 1em;
+    margin-right: 5px;
+  }
+  .buttonSearch {
+    width: 30px;
+    height: 30px;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    color: white;
+    position: relative;
+  }
+  .buttonSearch::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(./images/btn_search.png) no-repeat 0 0 /cover scroll;
   }
   /* 모바일 내비게이션 */
   .app-navigation {
@@ -148,10 +196,46 @@ a {
   }
   /* 데스크탑 헤더 */
   .app-header {
+    position: relative;
     width: 1000px;
+  }
+  /* 데스크탑 로고 */
+  .brand{
+    background-color: blue;
+    position: absolute;
+    top: 50%;
+    left:0;
+    margin-top: -30px;
+    display: none;
+    /* transform: translateY(-50%) */
+  }
+ /* 데스크탑 맴버 링크 */
+  .memberOnly {
+    background-color: orange;
+    margin-right: -2rem;
   }
   /* 데스크탑 메인 콘텐츠 */
   .app-main {
     width: 1000px;
   }
+  .searchForm{
+    text-align: right;
+    margin : 5px -2rem 5px 0;
+  }
+
+  input[name="search"]{
+    height: 35px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    padding: 2px 1em;
+    margin: 10px 0s;
+  }
+  .buttonSearch {
+    width: 60px;
+    height: 35px;
+    border: 0;
+    padding: 0;
+    background-color: black;
+    border-radius: 5px;
+    color: white;
 }
