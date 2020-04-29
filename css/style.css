@@ -1,7 +1,7 @@
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 @import url(https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css);
 /* 숨김 콘테츠 */
-legend{
+legend, .a11yHidden{
   position: absolute;
   width: 1px;
   height: 1px;
@@ -26,14 +26,7 @@ legend{
   border: 0;
 }
 /* 공통 배경 */
-.app-header {
-  background-color: yellow;
-}
-.app-navigation {
-  background-color: pink;
-  height: 20vh;
-}
-.app-main {
+.appMain {
   background-color: blue;
 }
 .book {
@@ -56,7 +49,7 @@ legend{
   background-color: blueviolet;
   height: 10vh;
 }
-.app-footer {
+.appFooter {
   background-color: orange;
   height: 15vh;
 }
@@ -76,17 +69,17 @@ a {
   text-decoration: none;
 }
 /* 공통 컨테이너 */
-.app-container {
+.appContainer {
   display: flex;
   flex-flow: row wrap;
 }
-.app-header,
-.app-navigation,
-.app-main,
-.app-footer {
+.appHeader,
+.appNavigation,
+.appMain,
+.appFooter {
   width: 100%;
 }
-/* 공통 맴버 링크 */
+/* 공통 멤버 링크 */
 .memberOnly{
   display: flex;
   justify-content: flex-end;
@@ -96,6 +89,14 @@ a {
   display: inline-block;
   padding: 0.8rem 1rem;
 }
+/* 공통 검색 폼 */
+input[name="search"]{
+  height: 30px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  padding: 2px 1em;
+  margin-right: 5px;
+}
 /* 모바일 디바이스 */
 @media screen and (max-width: 999px) {
   /* 모바일 Body */
@@ -103,7 +104,7 @@ a {
     font-size: 1.5rem;
   }
   /* 모바일 헤더 */
-  .app-header {
+  .appHeader {
     display: flex;
     flex-flow: row wrap;
     background-color: #38302e;
@@ -124,41 +125,35 @@ a {
   }
   /* 모바일 검색 폼 */
   .searchForm{
-    padding : 0 20px 20px;
+    padding: 0 20px 20px;
   }
-
   input[name="search"]{
     width: calc(100% - 40px);
-    height: 30px;
-    border: 1px solid #aaa;
-    border-radius: 5px;
-    padding: 2px 1em;
-    margin-right: 5px;
   }
-  .buttonSearch {
+  .buttonSearch{
     width: 30px;
     height: 30px;
     border: 0;
     padding: 0;
     background-color: transparent;
-    color: white;
+    color: #fff;
     position: relative;
   }
-  .buttonSearch::after {
+  .buttonSearch::after{
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: url(./images/btn_search.png) no-repeat 0 0 /cover scroll;
+    background:  url(./images/btn_search.png) no-repeat 0 0/cover scroll;
   }
   /* 모바일 내비게이션 */
-  .app-navigation {
+  .appNavigation {
     display: none;
   }
   /* 모바일 메인 */
-  .app-main {
+  .appMain {
     display: flex;
     flex-flow: row wrap;
     height: 50vh;
@@ -184,58 +179,86 @@ a {
     width: 100%;
   }
   /* 모바일 푸터 */
-  .app-footer {
+  .appFooter {
     height: 25vh;
   }
 }
 /* 데스크탑 디바이스 */
 @media screen and (min-width: 1000px) {
   /* 데스크탑 컨테이너 */
-  .app-container {
+  .appContainer {
     justify-content: center;
   }
   /* 데스크탑 헤더 */
-  .app-header {
+  .appHeader {
     position: relative;
     width: 1000px;
   }
   /* 데스크탑 로고 */
   .brand{
-    background-color: blue;
     position: absolute;
     top: 50%;
-    left:0;
+    left: 0;
     margin-top: -30px;
-    display: none;
-    /* transform: translateY(-50%) */
   }
- /* 데스크탑 맴버 링크 */
-  .memberOnly {
-    background-color: orange;
+  /* 데스크탑 멤버 링크 */
+  .memberOnly{
     margin-right: -2rem;
   }
-  /* 데스크탑 메인 콘텐츠 */
-  .app-main {
-    width: 1000px;
-  }
+  /* 데스크탑 검색 폼 */
   .searchForm{
     text-align: right;
-    margin : 5px -2rem 5px 0;
+    padding: 1rem 0 2rem;
   }
-
   input[name="search"]{
-    height: 35px;
+    width: 40%;
+  }
+  .buttonSearch{
     border: 1px solid #aaa;
     border-radius: 5px;
-    padding: 2px 1em;
-    margin: 10px 0s;
+    height: 30px;
+    padding: 2px 15px;
+    background-color: #988574;
+    color: #fff;
   }
-  .buttonSearch {
-    width: 60px;
-    height: 35px;
-    border: 0;
-    padding: 0;
-    background-color: black;
-    border-radius: 5px;
-    color: white;
+  /* 데스크탑 내비게이션 */
+  .appNavigation{
+    background-color: #988574;
+  }
+  .menu__list{
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    color: #fff;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+  }
+  .menu__item{
+    float: left;
+    margin-left: 36px;
+    margin-right: 36px;
+  }
+  .menu__link{
+    font-weight: 700;
+    font-size: 1.8rem;
+    text-shadow: 1px 1px 0 #000, -1px -1px 0 #000;
+  }
+  .menu__subMenu{
+    padding-left: 25px;
+  }
+  .menu__subMenu li{
+    margin: 0.5rem 0;
+  }
+  .menu__subMenu a{
+    display: block;
+    padding: 0.5rem 0;
+  }
+  .buttonBurger{
+    display: none;
+  }
+  /* 데스크탑 메인 콘텐츠 */
+  .appMain {
+    width: 1000px;
+  }
 }
