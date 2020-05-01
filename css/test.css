@@ -1,0 +1,11 @@
+.appHeader {
+  position: relative;
+  height : 90vh;
+  width: 90vh;
+  background: yellow;
+}
+
+img {
+  position: absolute;
+  margin : auto auto;
+}
