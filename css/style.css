@@ -1,3 +1,4 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css);
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 @font-face {
   font-family: 'fontello';
@@ -64,7 +65,6 @@
 .icon-git-squared:before {
   content: '\f1d2';
 }
-@import url(https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css);
 /* 숨김 콘테츠 */
 legend,
 .a11yHidden {
@@ -91,33 +91,43 @@ legend,
   padding: 0;
   border: 0;
 }
+/* 공통 디자인 모듈 */
+.responsive {
+  max-width: 100%;
+  height: auto;
+}
+.themeGreen {
+  color: #abd375;
+}
+.sprite {
+  background-color: yellow;
+  background-image: url(./images/sprite_main.png);
+  background-repeat: no-repeat;
+  min-height: 60px;
+  padding-left: 65px;
+}
+.spriteBook {
+  background-position: 0 0;
+}
+.spriteNews {
+  background-position: 0 -230px;
+}
+
 /* 공통 배경 */
-.appMain {
-  background-color: blue;
-}
-.book {
-  background-color: tomato;
-  height: 10vh;
-}
 .news {
   background-color: lime;
-  height: 10vh;
 }
 .board {
   background-color: silver;
-  height: 10vh;
 }
 .favorite {
   background-color: hotpink;
-  height: 10vh;
 }
 .twitter {
   background-color: blueviolet;
-  height: 10vh;
 }
 .appFooter {
   background-color: orange;
-  height: 15vh;
 }
 /* 공통 스타일 */
 html {
@@ -162,6 +172,16 @@ input[name="search"] {
   border-radius: 5px;
   padding: 2px 1em;
   margin-right: 5px;
+}
+/* 공통 메인 콘텐츠 */
+.appMain {
+  display: flex;
+  flex-flow: row wrap;
+}
+.appMain figure {
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: center;
 }
 /* 모바일 디바이스 */
 @media screen and (max-width: 999px) {
@@ -217,8 +237,6 @@ input[name="search"] {
     background: url(./images/btn_search.png) no-repeat 0 0/cover scroll;
   }
   /* 모바일 내비게이션 */
-  .appNavigation {
-  }
   /* 모바일 내비게이션 열기 & 닫기 버튼 */
   .buttonNone {
     border: 0;
@@ -303,34 +321,30 @@ input[name="search"] {
     padding: 0.5rem;
   }
   /* 모바일 메인 */
-  .appMain {
-    display: flex;
-    flex-flow: row wrap;
-    height: 50vh;
-  }
-  /* 모바일 추천 서적 */
-  .book {
-    width: 50%;
-  }
-  /* 모바일 새소식 */
-  .news {
-    width: 50%;
-  }
-  /* 모바일 게시판 */
-  .board {
-    width: 70%;
-  }
-  /* 모바일 인기사이트 */
-  .favorite {
-    width: 30%;
-  }
-  /* 모바일 트위터 */
+  .book,
+  .news,
+  .board,
+  .favorite,
   .twitter {
     width: 100%;
   }
+  /* 모바일 추천 서적 */
+  .book {
+  }
+  /* 모바일 새소식 */
+  .news {
+  }
+  /* 모바일 게시판 */
+  .board {
+  }
+  /* 모바일 인기사이트 */
+  .favorite {
+  }
+  /* 모바일 트위터 */
+  .twitter {
+  }
   /* 모바일 푸터 */
   .appFooter {
-    height: 25vh;
   }
 }
 /* 데스크탑 디바이스 */
@@ -410,5 +424,27 @@ input[name="search"] {
   /* 데스크탑 메인 콘텐츠 */
   .appMain {
     width: 1000px;
+    justify-content: space-between;
+  }
+  /* 데스크탑 추천서적 */
+  .book {
+    width: 320px;
+  }
+  /* 데스크탑 새소식 */
+  .news {
+    width: 660px;
+  }
+  /* 데스크탑 게시판 */
+  .board {
+    width: 320px;
+  }
+  /* 데스크탑 인기 사이트 */
+  .favorite {
+    width: 220px;
+    order: 1;
+  }
+  /* 데스크탑 트위터 */
+  .twitter {
+    width: 420px;
   }
 }
